@@ -2,9 +2,6 @@
 
 Vercel serverless functions connect from dynamic IPs. Your Aiven PostgreSQL must allow connections from anywhere.
 
-## Direct link
-**[Open Aiven Console → Services](https://console.aiven.io/project/saideepak144-f3e0/services)** (log in first)
-
 ## Steps (2 minutes)
 
 ### 1. Open Aiven Console
