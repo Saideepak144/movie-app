@@ -6,5 +6,10 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "install:all": "cd server && npm install && cd ../client && npm install"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.0"
   }
 }

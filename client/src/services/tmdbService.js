@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const TMDB_BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
-const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const TMDB_IMAGE_BASE_URL = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
+const TMDB_BASE_URL = import.meta.env.VITE_TMDB_BASE_URL || 'https://api.themoviedb.org/3';
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY || '';
+const TMDB_IMAGE_BASE_URL = import.meta.env.VITE_TMDB_IMAGE_BASE_URL || 'https://image.tmdb.org/t/p/original';
 
 const tmdbApi = axios.create({
   baseURL: TMDB_BASE_URL,
@@ -13,7 +13,8 @@ const tmdbApi = axios.create({
 
 export const getImageUrl = (path, size = 'original') => {
   if (!path) return null;
-  return `${TMDB_IMAGE_BASE_URL.replace('original', size)}${path}`;
+  const base = TMDB_IMAGE_BASE_URL.replace(/original$/, size);
+  return `${base}${path.startsWith('/') ? path : '/' + path}`;
 };
 
 export const fetchTrendingMovies = async () => {
