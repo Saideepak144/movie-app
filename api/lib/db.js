@@ -4,9 +4,9 @@ let pool = null;
 
 const getPool = () => {
   if (!pool) {
-    const connStr = (process.env.DATABASE_URL || '').trim().replace(/\r?\n/g, '').replace(/\s+/g, '');
+    const connStr = (process.env.POSTGRES_URL || process.env.DATABASE_URL || '').trim().replace(/\r?\n/g, '').replace(/\s+/g, '');
     if (!connStr) {
-      throw new Error('DATABASE_URL is not set');
+      throw new Error('DATABASE_URL or POSTGRES_URL is not set. Add Neon from Vercel Storage.');
     }
     const isAiven = connStr.includes('aivencloud.com') || connStr.includes('sslmode=require');
     pool = new Pool({
