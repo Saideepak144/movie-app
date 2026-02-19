@@ -1,0 +1,10 @@
+{
+  "name": "netflix-clone",
+  "version": "1.0.0",
+  "description": "Full-stack Netflix clone with React, Node.js/Express, and PostgreSQL",
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "install:all": "cd server && npm install && cd ../client && npm install"
+  }
+}
