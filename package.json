@@ -8,7 +8,7 @@
     "install:all": "cd server && npm install && cd ../client && npm install"
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.11.0"
   }

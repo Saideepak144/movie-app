@@ -4,9 +4,15 @@ let pool = null;
 
 const getPool = () => {
   if (!pool) {
+    const connStr = (process.env.DATABASE_URL || '').trim().replace(/\r?\n/g, '');
+    if (!connStr) {
+      throw new Error('DATABASE_URL is not set');
+    }
     pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.DATABASE_URL?.includes('localhost') ? false : { rejectUnauthorized: false }
+      connectionString: connStr,
+      ssl: connStr.includes('aivencloud.com') || connStr.includes('sslmode=require')
+        ? { rejectUnauthorized: false }
+        : false
     });
   }
   return pool;
